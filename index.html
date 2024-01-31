@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+
+    <script src="assets/js/idb.js"></script>
+    <script src="assets/js/main.js"></script>
+
+
+    <!-- ^ Add to Home Screen Feature -->
+    <link href="assets/manifest/manifest.json" rel="manifest">
+
+</head>
+
+<body class="bg-danger user-select-none">
+    <section class="container bg-body shadow-lg">
+        <header class="text-center py-3 ">
+            <h1 class="text-center bg-danger text-white mx-auto shadow-sm w-75 rounded py-3 ">To do list</h1>
+
+        </header>
+        <main class="d-flex flex-column gap-3 w-50 mx-auto">
+
+
+            <div>
+                <h2 class="fw-bold text-center ">Add new to do</h2>
+
+                <form class="d-flex flex-column gap-2">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="title" placeholder="Task title" autocomplete="off">
+                        <label for="titleInput">Task title</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="number" class="form-control" placeholder="Hours (hh)" id="hours">
+                        <label for="hours">Hours (hh)</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="number" class="form-control" placeholder="Mins (mm)" id="mins">
+                        <label for="mins">Mins (mm)</label>
+                    </div>
+
+                    <div class="d-flex flex-row gap-3">
+                        <select id="day" class="form-select" aria-label="Default select example">
+                            <option selected disabled>dd</option>
+
+                        </select>
+
+                        <select id="month" class="form-select" aria-label="Default select example">
+                            <option selected disabled>mm</option>
+
+                        </select>
+
+                        <select id="year" class="form-select" aria-label="Default select example">
+                            <option selected disabled>yyyy</option>
+
+                        </select>
+                    </div>
+
+                    <div>
+                        <button id="addBtn" type="button" onclick="idbApp.addNewTask()"
+                            class="btn btn-danger mx-auto ">Add Task</button>
+                        <button id="notifyBtn" type="button" class="btn btn-warning  mx-auto ">Enable
+                            notifications</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="tasksContainer" class="border-top border-danger pt-3 ">
+                <div class="alert alert-danger d-flex justify-content-between align-items-center px-4">
+                    <p class="lead mb-0 ">
+                        <span id="taskName" class="fw-bolder ">${taskObject.title}</span> -
+                        <span id="taskTime" class="fw-bolder ">${taskObject.date}</span>.
+                    </p>
+                    <button id="deleteBtn" onclick="idbApp.deleteTask()" class="btn btn-danger">X</button>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <!-- ^ Scripts for IndexedDB -->
+    <script src="assets/js/idb.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script src="assets/js/index.js"></script>
+
+</body>
+
+</html>
